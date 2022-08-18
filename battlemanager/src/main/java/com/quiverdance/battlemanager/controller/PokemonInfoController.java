@@ -6,12 +6,12 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class PokemonInfoController {
-    private final PokemonInfoService pokemonInfoService;
-
-    @Autowired
-    public PokemonInfoController(PokemonInfoService pokemonInfoService) {
-        this.pokemonInfoService = pokemonInfoService;
-    }
+//    private final PokemonInfoService pokemonInfoService;
+//
+//    @Autowired
+//    public PokemonInfoController(PokemonInfoService pokemonInfoService) {
+//        this.pokemonInfoService = pokemonInfoService;
+//    }
 
 
 }
