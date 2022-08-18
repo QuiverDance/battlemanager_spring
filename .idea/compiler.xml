@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="battlemanager.battlemanager.main" target="17" />
-      <module name="battlemanager.battlemanager.test" target="17" />
+      <module name="battlemanager.battlemanager.main~1" target="11" />
+      <module name="battlemanager.battlemanager.test~1" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
