@@ -38,7 +38,7 @@ public class PokemonInfoController {
     }
 
     @GetMapping("/pokemon/one")
-    public Optional<PokemonInfo> getPokemon(@RequestParam String name){
+    public Optional<PokemonInfo> getPokemonForName(@RequestParam String name){
         return pokemonInfoService.findPokemonInfo(name);
     }
 
