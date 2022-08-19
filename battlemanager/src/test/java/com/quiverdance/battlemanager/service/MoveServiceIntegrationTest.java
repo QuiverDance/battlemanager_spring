@@ -21,7 +21,9 @@ class MoveServiceIntegrationTest {
     void findMoves() {
         List<MoveInfo> result = moveInfoService.findAllMoveInfo();
         System.out.println(result.size());
-        System.out.println(result.get(0).getName());
+        for(int i = 0; i < 50; i++){
+            System.out.println(result.get(i).toString());
+        }
     }
 
     @Test
