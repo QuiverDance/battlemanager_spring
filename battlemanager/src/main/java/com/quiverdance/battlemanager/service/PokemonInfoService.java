@@ -29,6 +29,9 @@ public class PokemonInfoService {
     public Optional<PokemonInfo> findPokemonInfo(Long id){
         return pokemonInfoRepository.findById(id);
     }
+    public Optional<PokemonInfo> findPokemonInfo(String name){
+        return pokemonInfoRepository.findByName(name);
+    }
 
     public List<PokemonInfo> findAllPokemonInfo(){
         return pokemonInfoRepository.findAll();
