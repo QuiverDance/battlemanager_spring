@@ -55,4 +55,16 @@ public class MoveInfo {
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "MoveInfo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", power=" + power +
+                ", type='" + type + '\'' +
+                ", category='" + category + '\'' +
+                ", accuracy=" + accuracy +
+                '}';
+    }
 }

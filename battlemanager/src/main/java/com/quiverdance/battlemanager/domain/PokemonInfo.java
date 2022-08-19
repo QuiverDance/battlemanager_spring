@@ -154,4 +154,27 @@ public class PokemonInfo {
     public void setS(int s) {
         this.s = s;
     }
+
+    @Override
+    public String toString() {
+        return "PokemonInfo{" +
+                "id=" + id +
+                ", dexId=" + dexId +
+                ", name='" + name + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", type1='" + type1 + '\'' +
+                ", type2='" + type2 + '\'' +
+                ", ability1='" + ability1 + '\'' +
+                ", ability2='" + ability2 + '\'' +
+                ", ability3='" + ability3 + '\'' +
+                ", genderType=" + genderType +
+                ", weight=" + weight +
+                ", h=" + h +
+                ", a=" + a +
+                ", b=" + b +
+                ", c=" + c +
+                ", d=" + d +
+                ", s=" + s +
+                '}';
+    }
 }
