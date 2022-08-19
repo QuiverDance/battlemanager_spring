@@ -24,7 +24,7 @@ public class PokemonInfoController {
         return pokemonInfoService.findAllPokemonInfo();
     }
 
-    @GetMapping("/pokemon/all")
+    @GetMapping("/pokemon/all/name")
     public List<String> getPokemonNameList(){
         List<PokemonInfo> pokemonInfoList = pokemonInfoService.findAllPokemonInfo();
         List<String> pokemonNameList = List.of();
