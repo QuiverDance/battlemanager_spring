@@ -19,6 +19,10 @@ public class MoveInfoService {
         return moveInfoRepository.findById(id);
     }
 
+    public Optional<MoveInfo> findMoveInfo(String name) {
+        return moveInfoRepository.findByName(name);
+    }
+
     public List<MoveInfo> findAllMoveInfo() {
         return moveInfoRepository.findAll();
     }
