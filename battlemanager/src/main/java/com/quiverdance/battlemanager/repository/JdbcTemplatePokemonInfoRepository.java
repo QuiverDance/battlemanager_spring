@@ -63,7 +63,7 @@ public class JdbcTemplatePokemonInfoRepository implements PokemonInfoRepository{
                 PokemonInfo.setD(rs.getInt("d"));
                 PokemonInfo.setS(rs.getInt("s"));
                 PokemonInfo.setGenderType(rs.getInt("gendertype"));
-                PokemonInfo.setWeight(rs.getFloat("weight"));
+                PokemonInfo.setWeight(rs.getDouble("weight"));
                 return PokemonInfo;
             }
         };
