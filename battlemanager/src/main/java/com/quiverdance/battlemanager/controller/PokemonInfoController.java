@@ -3,14 +3,20 @@ package com.quiverdance.battlemanager.controller;
 import com.quiverdance.battlemanager.domain.PokemonInfo;
 import com.quiverdance.battlemanager.service.PokemonInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
+@RequestMapping
 public class PokemonInfoController {
     private final PokemonInfoService pokemonInfoService;
 
@@ -20,26 +26,25 @@ public class PokemonInfoController {
     }
 
     @GetMapping("/pokemon/all")
-    public List<PokemonInfo> getPokemonList(){
-        return pokemonInfoService.findAllPokemonInfo();
+    public ResponseEntity<?> getPokemonList(){
+        return new ResponseEntity<>(pokemonInfoService.findAllPokemonInfo(), HttpStatus.OK);
     }
 
     @GetMapping("/pokemon/all/name")
-    public List<String> getPokemonNameList(){
+    public ResponseEntity<?> getPokemonNameList(){
         List<PokemonInfo> pokemonInfoList = pokemonInfoService.findAllPokemonInfo();
-        List<String> pokemonNameList = List.of();
-        int size = pokemonInfoList.size();
-        
-        for(int i = 0; i < size; i++){
-            pokemonNameList.add(pokemonInfoList.get(i).getDexId() + ". " + pokemonInfoList.get(i).getName());
+        List<String> pokemonNameList = new ArrayList<>();
+
+        for (PokemonInfo pokemonInfo : pokemonInfoList) {
+            pokemonNameList.add(pokemonInfo.getName());
         }
 
-        return pokemonNameList;
+        return new ResponseEntity<>(pokemonNameList, HttpStatus.OK);
     }
 
     @GetMapping("/pokemon/one")
-    public Optional<PokemonInfo> getPokemonForName(@RequestParam String name){
-        return pokemonInfoService.findPokemonInfo(name);
+    public ResponseEntity<?> getPokemonForName(@RequestParam String name){
+        return new ResponseEntity<>(pokemonInfoService.findPokemonInfo(name), HttpStatus.OK);
     }
 
 }
