@@ -43,7 +43,7 @@ public class PokemonInfoController {
     }
 
     @GetMapping("/pokemon/one")
-    public ResponseEntity<?> getPokemonForName(@RequestParam String name){
+    public ResponseEntity<?> getPokemonByName(@RequestParam String name){
         return new ResponseEntity<>(pokemonInfoService.findPokemonInfo(name), HttpStatus.OK);
     }
 
