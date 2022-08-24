@@ -23,4 +23,10 @@ class PokemonInfoControllerTest {
         ResponseEntity<?> result = pokemonInfoController.getPokemonNameList();
         System.out.println(result.toString());
     }
+    
+    @Test
+    void getPokemonByName(){
+        ResponseEntity<?> result = pokemonInfoController.getPokemonByName("불카모스");
+        System.out.println(result.toString());
+    }
 }
