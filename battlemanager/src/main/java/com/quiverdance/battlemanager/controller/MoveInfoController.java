@@ -5,10 +5,13 @@ import com.quiverdance.battlemanager.domain.MoveInfo;
 import com.quiverdance.battlemanager.service.MoveInfoService;
 import com.quiverdance.battlemanager.service.MoveInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,26 +25,25 @@ public class MoveInfoController {
     }
 
     @GetMapping("/move/all")
-    public List<MoveInfo> getMoveList() {
-        return moveInfoService.findAllMoveInfo();
+    public ResponseEntity<?> getMoveList() {
+        return new ResponseEntity<>(moveInfoService.findAllMoveInfo(), HttpStatus.OK);
     }
 
     @GetMapping("/move/all/name")
-    public List<String> getMoveNameList() {
+    public  ResponseEntity<?> getMoveNameList() {
         List<MoveInfo> MoveInfoList = moveInfoService.findAllMoveInfo();
-        List<String> MoveNameList = List.of();
-        int size = MoveInfoList.size();
+        List<String> moveNameList = new ArrayList<>();
 
         for (MoveInfo moveInfo : MoveInfoList) {
-            MoveNameList.add(moveInfo.getId() + ". " + moveInfo.getName());
+            moveNameList.add(moveInfo.getName());
         }
 
-        return MoveNameList;
+        return new ResponseEntity<>(moveNameList, HttpStatus.OK);
     }
 
     @GetMapping("/move/one")
-    public Optional<MoveInfo> getMoveForName(@RequestParam String name) {
-        return moveInfoService.findMoveInfo(name);
+    public ResponseEntity<?> getMoveForName(@RequestParam String name) {
+        return new ResponseEntity<>(moveInfoService.findMoveInfo(name), HttpStatus.OK);
     }
 
 }
