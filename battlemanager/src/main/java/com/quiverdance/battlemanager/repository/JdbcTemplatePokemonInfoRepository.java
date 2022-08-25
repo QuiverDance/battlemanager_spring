@@ -39,7 +39,8 @@ public class JdbcTemplatePokemonInfoRepository implements PokemonInfoRepository{
 
     @Override
     public List<PokemonInfo> findAll() {
-        return jdbcTemplate.query("select * from PokemonInfo", pokemonRowMapper());
+        return jdbcTemplate.query("select * from pokemoninfo", pokemonRowMapper());
+
     }
 
     private RowMapper<PokemonInfo> pokemonRowMapper(){
