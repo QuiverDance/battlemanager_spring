@@ -1,9 +1,7 @@
 package com.quiverdance.battlemanager;
 
-import com.quiverdance.battlemanager.repository.JdbcTemplateMoveInfoRepository;
-import com.quiverdance.battlemanager.repository.JdbcTemplatePokemonInfoRepository;
-import com.quiverdance.battlemanager.repository.MoveInfoRepository;
-import com.quiverdance.battlemanager.repository.PokemonInfoRepository;
+import com.quiverdance.battlemanager.repository.*;
+import com.quiverdance.battlemanager.service.ItemInfoService;
 import com.quiverdance.battlemanager.service.MoveInfoService;
 import com.quiverdance.battlemanager.service.PokemonInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +37,8 @@ public class SpringConfig {
         return new JdbcTemplateMoveInfoRepository(dataSource);
     }
 
+    @Bean
+    public ItemInfoService itemInfoService() { return new ItemInfoService(itemInfoRepository()); }
+    @Bean
+    public ItemRepository itemInfoRepository() { return new JdbcTemplateItemInfoRepository(dataSource); }
 }
