@@ -6,8 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 @Transactional
 class MoveInfoControllerTest {
@@ -21,7 +19,7 @@ class MoveInfoControllerTest {
 
     @Test
     void getMoveByName(){
-        ResponseEntity<?> response = moveInfoController.getMoveForName("화염방사");
+        ResponseEntity<?> response = moveInfoController.getMoveByName("화염방사");
         System.out.println(response.toString());
     }
 }

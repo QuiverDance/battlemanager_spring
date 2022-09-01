@@ -1,8 +1,6 @@
 package com.quiverdance.battlemanager.controller;
 
 import com.quiverdance.battlemanager.domain.MoveInfo;
-import com.quiverdance.battlemanager.domain.MoveInfo;
-import com.quiverdance.battlemanager.service.MoveInfoService;
 import com.quiverdance.battlemanager.service.MoveInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class MoveInfoController {
@@ -42,7 +39,7 @@ public class MoveInfoController {
     }
 
     @GetMapping("/move/one")
-    public ResponseEntity<?> getMoveForName(@RequestParam String name) {
+    public ResponseEntity<?> getMoveByName(@RequestParam String name) {
         return new ResponseEntity<>(moveInfoService.findMoveInfo(name), HttpStatus.OK);
     }
 
