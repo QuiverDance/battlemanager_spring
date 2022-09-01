@@ -17,14 +17,14 @@ public class ItemInfoController {
         this.itemInfoService = itemInfoService;
     }
 
-    @GetMapping("/move/all")
+    @GetMapping("/item/all")
     public ResponseEntity<?> getItemList() {
-        return new ResponseEntity<>(itemInfoService.findAllMoveInfo(), HttpStatus.OK);
+        return new ResponseEntity<>(itemInfoService.findAllItemInfo(), HttpStatus.OK);
     }
 
-    @GetMapping("/move/one")
-    public ResponseEntity<?> getItemForName(@RequestParam String name) {
-        return new ResponseEntity<>(itemInfoService.findMoveInfo(name), HttpStatus.OK);
+    @GetMapping("/item/one")
+    public ResponseEntity<?> getItemByName(@RequestParam String name) {
+        return new ResponseEntity<>(itemInfoService.findItemInfo(name), HttpStatus.OK);
     }
 
 }

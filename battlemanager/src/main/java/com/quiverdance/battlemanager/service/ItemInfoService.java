@@ -13,15 +13,15 @@ public class ItemInfoService {
         this.itemRepository = itemRepository;
     }
 
-    public Optional<ItemInfo> findMoveInfo(Long id) {
+    public Optional<ItemInfo> findItemInfo(Long id) {
         return itemRepository.findById(id);
     }
 
-    public Optional<ItemInfo> findMoveInfo(String name) {
+    public Optional<ItemInfo> findItemInfo(String name) {
         return itemRepository.findByName(name);
     }
 
-    public List<ItemInfo> findAllMoveInfo() {
+    public List<ItemInfo> findAllItemInfo() {
         return itemRepository.findAll();
     }
 }
